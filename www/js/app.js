@@ -7,7 +7,7 @@ var pathNoImage = "images/no-image.png"
 
 function login() {alert('entering app.js');
     var body = { email: "sugiarto.htf@gmail.com", password: "p@s5w0rddfs" };
-    window.df.apis.user.login({ body:body }, function(logindata) {
+    window.df.apis.user.login({ body:body }, function(logindata) { alert('successfully login df');
         var session = new ApiKeyAuthorization("X-DreamFactory-Session-Token", logindata.session_id, "header");
         window.authorizations.add("X-DreamFactory-Session-Token", session); runApp();
     });
