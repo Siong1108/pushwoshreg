@@ -6,7 +6,7 @@
         id        = "com.phonegap.hello-world"
         version   = "1.0.0">
 
-    <name>TestPush</name>
+    <name>PushWooshReg</name>
 
     <description>
         Hello World sample application with Pushwoosh Phonegap push notifications plugin integrated
