@@ -194,7 +194,7 @@ function onPushwooshAndroidInitialized(pushToken)
 	}
 }
 
-var app = {
+var app123 = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
