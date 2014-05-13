@@ -1,0 +1,18 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */function registerPushwooshIOS(){var e=window.plugins.pushNotification;document.addEventListener("push-notification",function(t){var n=t.notification;navigator.notification.alert(n.aps.alert);navigator.notification.alert(JSON.stringify(n));e.setApplicationIconBadgeNumber(0)});e.registerDevice({alert:!0,badge:!0,sound:!0,pw_appid:"E0506-55D2A",appname:"Vmall"},function(e){var t=e.deviceToken;console.warn("registerDevice: "+t);onPushwooshiOSInitialized(t)},function(e){console.warn("failed to register : "+JSON.stringify(e));navigator.notification.alert(JSON.stringify(["failed to register IOS",e]))});e.setApplicationIconBadgeNumber(0)}function onPushwooshiOSInitialized(e){var t=window.plugins.pushNotification;t.getTags(function(e){console.warn("tags for the device: "+JSON.stringify(e))},function(e){console.warn("get tags error: "+JSON.stringify(e))});t.startLocationTracking("PWTrackSignificantLocationChanges",function(){console.warn("Location Tracking Started")})}function registerPushwooshAndroid(){var e=window.plugins.pushNotification;document.addEventListener("push-notification",function(t){var n=t.notification.title,r=t.notification.userdata;typeof r!="undefined"&&alert("user data: "+JSON.stringify(r));navigator.notification.alert("aaaaaaaaaaaaa");e.stopGeoPushes()});e.registerDevice({projectid:"200402851784",appid:"E0506-55D2A"},function(e){alert(e);onPushwooshAndroidInitialized(e)},function(e){alert("failed to register Android: "+e);alert(JSON.stringify(["failed to register Android ",e]))})}function onPushwooshAndroidInitialized(e){function n(e){t.sendLocation({lat:e.coords.latitude,lon:e.coords.longitude},function(e){alert("sendLocation success")},function(e){alert("sendLocation failed")})}function r(e){alert("code: "+e.code+"\n"+"message: "+e.message+"\n")}function i(){navigator.geolocation.getCurrentPosition(n,r)}console.warn("push token: "+e);var t=window.plugins.pushNotification;t.getTags(function(e){alert("tags for the device: "+JSON.stringify(e))},function(e){alert("get tags error: "+JSON.stringify(e))});t.setLightScreenOnNotification(!1);t.setTags({deviceName:"hello",deviceId:10},function(e){alert("setTags success")},function(e){alert("setTags failed")});t.startGeoPushes()}function initPushwoosh(){var e=window.plugins.pushNotification;if(device.platform=="Android"){registerPushwooshAndroid();e.onDeviceReady()}if(device.platform=="iPhone"||device.platform=="iOS"){registerPushwooshIOS();e.onDeviceReady()}}var app={initialize:function(){this.bindEvents()},bindEvents:function(){document.addEventListener("deviceready",this.onDeviceReady,!1)},onDeviceReady:function(){initPushwoosh();app.receivedEvent("deviceready")},receivedEvent:function(e){var t=document.getElementById(e),n=t.querySelector(".listening"),r=t.querySelector(".received");n.setAttribute("style","display:none;");r.setAttribute("style","display:block;");console.log("Received Event: "+e+"aaaaaaaaaaaa")}};
