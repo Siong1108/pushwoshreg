@@ -35,20 +35,20 @@
     <script src="lib/jquery-2.0.3.min.js"></script>
     <script src="assets/chui/js/chui-3.5.4.min.js"></script>
 
-   <script type="text/javascript">
-        // var isiDevice = /ipad|iphone|ipod/i.test(navigator.userAgent.toLowerCase());
-        // var isAndroid = /android/i.test(navigator.userAgent.toLowerCase());
-        // var isWindowsPhone = /windows phone/i.test(navigator.userAgent.toLowerCase());
+   <!--<script type="text/javascript">
+        var isiDevice = /ipad|iphone|ipod/i.test(navigator.userAgent.toLowerCase());
+        var isAndroid = /android/i.test(navigator.userAgent.toLowerCase());
+        var isWindowsPhone = /windows phone/i.test(navigator.userAgent.toLowerCase());
 
-        // if (isiDevice) {
-        //     document.write('<link rel="stylesheet" href="assets/css/chui-ios-3.5.4.css">');
-        // } else if (isAndroid) {
-        //     document.write('<link rel="stylesheet" href="assets/css/chui-android-3.5.4.css">');
-        // } else if (isWindowsPhone) {
-        //     document.write('<link rel="stylesheet" href="assets/css/chui-window-3.5.4.css">');
-        // } else {
-            // document.write('<link rel="stylesheet" href="assets/css/chui-ios-3.5.4.css">');
-        // }
+        if (isiDevice) {
+            document.write('<link rel="stylesheet" href="assets/css/chui-ios-3.5.4.css">');
+        } else if (isAndroid) {
+            document.write('<link rel="stylesheet" href="assets/css/chui-android-3.5.4.css">');
+        } else if (isWindowsPhone) {
+            document.write('<link rel="stylesheet" href="assets/css/chui-window-3.5.4.css">');
+        } else {
+            document.write('<link rel="stylesheet" href="assets/css/chui-ios-3.5.4.css">');
+        }
 
         $(function() {
             var opts = {
@@ -83,7 +83,7 @@
             });
             
         });
-    </script> 
+    </script> -->
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/owl.carousel.css">
     <link rel="stylesheet" href="assets/css/owl.theme.css">
@@ -91,13 +91,201 @@
     <link rel="stylesheet" href="assets/css/vm.css">
     </head>
     <body>
-        <div class="app">
+        <!-- <div class="app">
             <h1>PhoneGap</h1>
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
             </div>
+        </div> -->
+
+ <nav class="current">
+        <h1 class="type-large">
+            <!-- <img class="headerlogo" src="img/app/vmalllogox.png"> -->
+            <i>Countries</i>
+        </h1>
+    </nav>
+    <article id="country" class="current">
+        <section>
+            <ul class="list" id="countrylist"></ul>
+        </section>
+    </article>
+    <!-- Country Page: END! -->
+
+    <!-- User Registration Page: START! -->
+    <nav class="next">
+        <a href="#" id="backToMain" class="button back">Back</a>
+        <h1 class="type-large"><i>User Registration</i></h1>
+    </nav>
+    <article id="registration" class="next"><section>
+        <h2>Add details to your account</h2>
+        <ul class="list" ui-implements="form">
+            <li><input autocorrect="off" autocapitalize="words" type="text" id="first_name" placeholder="First Name" required></li>
+            <li><input autocorrect="off" autocapitalize="words" type="text" id="last_name" placeholder="Last Name" required></li>
+            <li><input autocorrect="off" autocapitalize="off" type="email" id="email_address" placeholder="Email Address" required></li>
+        </ul>
+        <ul class="list" ui-implements="form">
+            <li id="dateOfBirth" class="comp">
+                <div><label for="dateofbirth">Date of Birth: </label></div>
+                <aside><input id="dateofbirth" autocorrect="off" autocapitalize="off" type="date" id="dob" required></aside>
+            </li>
+        </ul>
+        <a class='button action' id="submit">Join</a>
+    </section></article>
+    
+    <!-- Favorites Page: START! -->
+    <nav class="next"><a href="#" id="backToMain" class="button back">Back</a><h1 class="type-large"><i>Favorite</i></h1></nav>
+    <article id="favorite" class="next"><section>
+        <div class="horizontal centered" id="favSegmented"></div>
+        <div id="favDetail">
+            <div><ul class="list" id="favmall"></ul></div>
+            <div><ul class="list" id="favshop"></ul></div>
         </div>
+    </section></article>
+
+    <!-- Search Page: START! -->
+    <nav class="next"><a href="#" id="backToMain" class="button back">Back</a><h1 class="type-large"><i>Search</i></h1></nav>
+    <article id="search" class="next">
+        <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
+        </div>
+    </article>
+
+    <!-- City Page: START! -->
+    <nav class="next">
+        <a href="#" id="backToMain" class="button back">Back</a>
+        <h1>
+            <!-- <img class="headerlogo" src="img/app/vmalllogox.png"> -->
+            <i id="cityhead"></i>
+        </h1>
+    </nav>
+    <article id="city" class="next">
+        <section>
+            <ul class="list" id="citylist"></ul>
+        </section>
+    </article>
+    <!-- City Page: END! -->
+
+    <!-- Suburb Page: START! -->
+    <nav class="next">
+        <a href="#" id="backToMain" class="button back">Back</a>
+        <h1>
+            <!-- <img class="headerlogo" src="img/app/vmalllogox.png"> -->
+            <i id="suburbhead"></i>
+        </h1>
+    </nav>
+    <article id="suburb" class="next">
+        <section>
+            <ul class="list" id="suburblist"></ul>
+        </section>
+    </article>
+    <!-- Suburb and Mall Page: END! -->
+
+    <!-- Mall Page: START! -->
+    <nav class="next">
+        <a href="#" id="backToMain" class="button back">Back</a>
+        <h1>
+            <!-- <img class="headerlogo" src="img/app/vmalllogox.png"> -->
+            <i id="mallhead"></i>
+        </h1>
+    </nav>
+    <article id="malls" class="next">
+        <section>
+            <ul class="list" id="malllist"></ul>
+        </section>
+    </article>
+    <!-- Mall Page: END! -->
+
+    <!-- Mall Detail Page: START! -->
+    <nav class="next">
+        <a href="#" id="backToMain" class="button back">Back</a>
+        <h1>
+            <!-- <img class="headerlogo" src="img/app/vmalllogox.png"> -->
+            <i id="detailhead"></i>
+        </h1>
+    </nav>
+    <article id="detail" class="next">
+        <section>
+            <div class="horizontal centered" id="mallSegmented"></div>
+            <div id="mallDetail">
+                <div>
+                    <ul class='list' id='shops'></ul>
+                </div>
+                <div>
+                    <ul class='list' id='services'></ul>
+                </div>
+                <div>
+                    <ul class='list' id='events'></ul>
+                </div>
+                <div>
+                    <ul class='list' id='locmap'></ul>
+                </div>
+                <div>
+                    <ul class='list' id='about'></ul>
+                </div>
+            </div>
+        </section>
+    </article>
+    <!-- Mall Detail Page: END! -->
+
+    <!-- Tenant Detail Page: START! -->
+    <nav class="next">
+        <a href="#" id="backToMain" class="button back">Back</a>
+        <h1>
+            <!-- <img class="headerlogo" src="img/app/vmalllogox.png"> -->
+            <i id="tenanthead"></i>
+        </h1>
+    </nav>
+    <article id="tenant" class="next">
+        <section>
+            <div class="horizontal centered" id="shopSegmented"></div>
+            <div id="tenantDetail">
+                <div>
+                    <ul class='list' id='tabout'></ul>
+                </div>
+                <div>
+                    <ul class='list' id='products'></ul>
+                </div>
+                <div>
+                    <ul class='list' id='items'></ul>
+                </div>
+                <div>
+                    <ul class='list' id='promos'></ul>
+                </div>
+                <div>
+                    <ul class='list' id='tlocmap'></ul>
+                </div>
+            </div>
+        </section>
+    </article>
+    <!-- Tenant Detail Page: END! -->
+
+    <!-- Event Detail Page: START! -->
+    <nav class="next">
+        <a href="#" id="backToMain" class="button back">Back</a>
+        <h1>
+            <!-- <img class="headerlogo" src="img/app/vmalllogox.png"> -->
+            <i id="eventhead"></i>
+        </h1>
+    </nav>
+    <article id="event" class="next">
+        <section>
+            <div id="eventDetail"></div>
+        </section>
+    </article>
+    <!-- Event Detail Page: END! -->
+
+
+<script src="lib/owl.carousel.min.js"></script>
+<script src="lib/imagelightbox.min.js"></script>
+<script src="js/adapters/webstorage-adapter.js"></script>
+<script src="js/appconfig.js"></script>
+<script src='lib/shred.bundle.js' type='text/javascript'></script>
+<script src='lib/swagger.js' type='text/javascript'></script>
+<script src='lib/sdk-init.js' type='text/javascript'></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.11&sensor=false" type="text/javascript"></script>    
+
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="PushNotification.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
