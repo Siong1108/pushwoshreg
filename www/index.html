@@ -50,39 +50,39 @@
             document.write('<link rel="stylesheet" href="assets/css/chui-ios-3.5.4.css">');
         }
 
-        $(function() {
-            var opts = {
-                tabs: 4,
-                imagePath: 'images/icons/',
-                icons: ['home', 'profile', 'favorite', 'search'],
-                labels: ['Home', 'Profile', 'Favorites', 'Search'],
-                selected: 1
-            }; $.UITabbar(opts);
+        // $(function() {
+        //     var opts = {
+        //         tabs: 4,
+        //         imagePath: 'images/icons/',
+        //         icons: ['home', 'profile', 'favorite', 'search'],
+        //         labels: ['Home', 'Profile', 'Favorites', 'Search'],
+        //         selected: 1
+        //     }; $.UITabbar(opts);
 
-            $.UIDeletable({
-                list: '#favmall',
-                callback: function(item) {
-                    alert('deleted');
-                    // var text = $(item).siblings('div').text();
-                    // alert('You deleted: <strong>' + text + '</strong>');
-                }
-            });
+        //     $.UIDeletable({
+        //         list: '#favmall',
+        //         callback: function(item) {
+        //             alert('deleted');
+        //             // var text = $(item).siblings('div').text();
+        //             // alert('You deleted: <strong>' + text + '</strong>');
+        //         }
+        //     });
             
-            $.UISearch({
-              articleId: '#detail',
-              id: 'shopSearch',
-              placeholder: 'Find a Shop',
-              results: 5
-            });
+        //     $.UISearch({
+        //       articleId: '#detail',
+        //       id: 'shopSearch',
+        //       placeholder: 'Find a Shop',
+        //       results: 5
+        //     });
             
-            $.UISearch({
-              articleId: '#malls',
-              id: 'mallSearch',
-              placeholder: 'Find a Mall',
-              results: 5
-            });
+        //     $.UISearch({
+        //       articleId: '#malls',
+        //       id: 'mallSearch',
+        //       placeholder: 'Find a Mall',
+        //       results: 5
+        //     });
             
-        });
+        // });
     </script>
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/owl.carousel.css">
